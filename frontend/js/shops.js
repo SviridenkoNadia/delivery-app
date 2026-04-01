@@ -22,6 +22,11 @@ async function loadShops() {
 }
 
 function renderShops(shops) {
+  if (shops.length === 0) {
+    document.getElementById("products-grid").innerHTML = "<p class="no-results">No shops found</p>";
+    document.getElementById("products-placeholder").style.display = "none";
+    return;
+  }
   const list = document.getElementById('shops-list');
   list.innerHTML = '';
 
