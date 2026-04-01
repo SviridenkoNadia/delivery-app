@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodRush — Shops</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">🍔 FoodRush</div>
+      <nav>
+        <a href="index.html" class="nav-link active">Shop</a>
+        <a href="cart.html" class="nav-link">
+          Shopping Cart
+          <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+        </a>
+        <a href="history.html" class="nav-link">History</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shops-layout">
+    <!-- Left: Shops list + filters -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3>Filter by Rating</h3>
+        <select id="rating-filter" class="filter-select">
+          <option value="">All ratings</option>
+          <option value="4-5">⭐⭐⭐⭐⭐ 4.0 – 5.0</option>
+          <option value="3-4">⭐⭐⭐⭐ 3.0 – 4.0</option>
+          <option value="2-3">⭐⭐⭐ 2.0 – 3.0</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Shops</h3>
+        <div id="shops-list" class="shops-list">
+          <p class="loading">Loading shops...</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right: Products -->
+    <section class="products-section">
+      <div class="products-toolbar">
+        <div id="category-filters" class="category-filters"></div>
+        <select id="sort-select" class="filter-select sort-select">
+          <option value="">Default sort</option>
+          <option value="price_asc">Price: Low → High</option>
+          <option value="price_desc">Price: High → Low</option>
+          <option value="name_asc">Name: A → Z</option>
+        </select>
+      </div>
+
+      <div id="products-placeholder" class="products-placeholder">
+        <div class="placeholder-inner">
+          <span>👈</span>
+          <p>Select a shop to see products</p>
+        </div>
+      </div>
+
+      <div id="products-grid" class="products-grid"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/shops.js"></script>
+</body>
+</html>

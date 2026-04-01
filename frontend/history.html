@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodRush — Order History</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">🍔 FoodRush</div>
+      <nav>
+        <a href="index.html" class="nav-link">Shop</a>
+        <a href="cart.html" class="nav-link">
+          Shopping Cart
+          <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+        </a>
+        <a href="history.html" class="nav-link active">History</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="history-layout">
+    <div class="history-container">
+      <h2>📋 Order History</h2>
+      <p class="history-hint">Enter your email and phone to find your orders.</p>
+
+      <form id="history-form" class="history-form" novalidate>
+        <div class="form-group">
+          <label for="h-email">Email *</label>
+          <input id="h-email" type="email" placeholder="your@email.com" />
+          <span id="h-email-error" class="field-error" style="display:none"></span>
+        </div>
+        <div class="form-group">
+          <label for="h-phone">Phone *</label>
+          <input id="h-phone" type="tel" placeholder="+380 XX XXX XXXX" />
+          <span id="h-phone-error" class="field-error" style="display:none"></span>
+        </div>
+        <button id="search-btn" type="submit" class="submit-btn">Find Orders</button>
+      </form>
+
+      <div id="orders-list" class="orders-list"></div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>
