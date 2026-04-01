@@ -22,11 +22,6 @@ async function loadShops() {
 }
 
 function renderShops(shops) {
-  if (shops.length === 0) {
-    document.getElementById("products-grid").innerHTML = "<p class="no-results">No shops found</p>";
-    document.getElementById("products-placeholder").style.display = "none";
-    return;
-  }
   const list = document.getElementById('shops-list');
   list.innerHTML = '';
 
@@ -46,15 +41,17 @@ function renderShops(shops) {
     el.addEventListener('click', () => selectShop(shop.id, el));
     list.appendChild(el);
   });
+
+  if (!currentShopId && shops.length > 0) {
+    const firstEl = list.querySelector('.shop-item');
+    selectShop(shops[0].id, firstEl);
+  }
 }
 
 async function selectShop(shopId, el) {
-  // Highlight selected
   document.querySelectorAll('.shop-item').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
   currentShopId = shopId;
-
-  // Load categories for this shop
   await loadCategories(shopId);
   loadProducts(shopId);
 }
@@ -128,8 +125,6 @@ function renderProducts(products) {
 
 function handleAddToCart(product) {
   addToCart(product);
-
-  // Visual feedback
   const toast = document.getElementById('toast');
   toast.textContent = `${product.name} added to cart!`;
   toast.classList.add('show');
