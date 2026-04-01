@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://affectionate-exploration-production.up.railway.app/api';
 // When deployed, change to: const API_URL = 'https://your-backend.railway.app/api';
 
 async function fetchShops(minRating, maxRating) {
